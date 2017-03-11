@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 
 import App from './pages/App/App';
-import Dashboard from './pages/Dashboard/Dashboard';
+import Dashboard from './containers/Dashboard';
 import Note from './pages/Note/Note';
 import NoteEdit from './pages/Dashboard/NoteEdit/NoteEdit';
 import Starred from './pages/Starred/Starred';
