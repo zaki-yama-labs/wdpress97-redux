@@ -14,7 +14,7 @@
     "jsx-a11y/no-static-element-interactions": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prefer-stateless-function": 0,
-    "react/prop-types": [2, { "ignore": ["dispatch"] }],
+    "react/prop-types": 0,
     "react/sort-comp": [2, {
       "order": [
         "type-annotations",
