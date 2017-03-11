@@ -2,7 +2,7 @@
   "name": "spa-note",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot",
     "build": "webpack"
   },
   "devDependencies": {
