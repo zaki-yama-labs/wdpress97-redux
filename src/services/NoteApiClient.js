@@ -5,13 +5,13 @@ let starred = [1, 2, 3];
 
 export default {
   request(response) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setTimeout(() => resolve(response), LATENCY);
     });
   },
 
   wait() {
-    return new Promise(resolve => setTimeout(resolve, LATENCY));
+    return new Promise((resolve) => setTimeout(resolve, LATENCY));
   },
 
   getUpdated() {
@@ -20,7 +20,7 @@ export default {
   },
 
   myNotes() {
-    return notes.filter(note => note.user === 'MyUserName');
+    return notes.filter((note) => note.user === 'MyUserName');
   },
 
   fetchMyNotes() {
@@ -28,11 +28,11 @@ export default {
   },
 
   fetchStarredNotes() {
-    return this.request(notes.filter(note => starred.includes(note.id)));
+    return this.request(notes.filter((note) => starred.includes(note.id)));
   },
 
   fetchNote(id) {
-    const note = notes.find(note => note.id === id);
+    const note = notes.find((note) => note.id === id);
     return this.request(Object.assign({ starred: starred.includes(note.id) }, note));
   },
 
@@ -44,19 +44,17 @@ export default {
   },
 
   updateNote(id, { title, body }) {
-    notes = notes.map(note => {
+    notes = notes.map((note) => {
       if (note.id === id) {
         return Object.assign({}, note, { title, body, updated: this.getUpdated() });
       }
-      else {
-        return note;
-      }
+      return note;
     });
     return this.request(null);
   },
 
   deleteNote(id) {
-    notes = notes.filter(note => note.id !== id);
+    notes = notes.filter((note) => note.id !== id);
     return this.request(null);
   },
 
@@ -66,7 +64,7 @@ export default {
   },
 
   deleteStar(id) {
-    starred = starred.filter(_id => _id !== id);
+    starred = starred.filter((_id) => _id !== id);
     return this.request(null);
   },
 };

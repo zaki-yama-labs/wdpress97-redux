@@ -23,8 +23,8 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const note = this.state.notes.find(note => note.id === Number(this.props.params.id));
-    return <div className="page-Dashboard">
+    const note = this.state.notes.find((note) => note.id === Number(this.props.params.id));
+    return (<div className="page-Dashboard">
       <div className="page-Dashboard-list">
         <div className="page-Dashboard-listHeader">
           <Button onClick={() => this.handleClickNew()}>New Note</Button>
@@ -34,9 +34,9 @@ class Dashboard extends React.Component {
         </div>
       </div>
       <div className="page-Dashboard-main" role="form">
-        {this.props.children ? React.cloneElement(this.props.children, { note: note }) : null}
+        {this.props.children ? React.cloneElement(this.props.children, { note }) : null}
       </div>
-    </div>;
+    </div>);
   }
 }
 

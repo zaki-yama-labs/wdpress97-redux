@@ -9,7 +9,7 @@ export default {
   },
 
   delete(noteId) {
-    return NoteApiClient.deleteStar(noteId).then(noteId => {
+    return NoteApiClient.deleteStar(noteId).then((noteId) => {
       dispatch({ type: 'star/delete', noteId });
     });
   },

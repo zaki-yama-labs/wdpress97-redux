@@ -3,26 +3,26 @@ import NoteApiClient from '../services/NoteApiClient';
 
 export default {
   fetchMyNotes() {
-    return NoteApiClient.fetchMyNotes().then(notes => {
+    return NoteApiClient.fetchMyNotes().then((notes) => {
       dispatch({ type: 'note/fetch/my', notes });
     });
   },
 
   fetchStarred() {
-    return NoteApiClient.fetchStarredNotes().then(notes => {
+    return NoteApiClient.fetchStarredNotes().then((notes) => {
       dispatch({ type: 'note/fetch/starred', notes });
     });
   },
 
   fetch(id) {
     dispatch({ type: 'note/fetch/before' });
-    return NoteApiClient.fetchNote(id).then(note => {
+    return NoteApiClient.fetchNote(id).then((note) => {
       dispatch({ type: 'note/fetch', note });
     });
   },
 
   create() {
-    return NoteApiClient.createNote().then(note => {
+    return NoteApiClient.createNote().then((note) => {
       dispatch({ type: 'note/create', note });
     });
   },

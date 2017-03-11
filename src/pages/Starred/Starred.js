@@ -18,10 +18,10 @@ class Starred extends React.Component {
   }
 
   render() {
-    return <div className="page-Stars">
+    return (<div className="page-Stars">
       <h1>Starred Notes</h1>
       <StarredNoteList notes={this.state.notes} />
-    </div>;
+    </div>);
   }
 }
 

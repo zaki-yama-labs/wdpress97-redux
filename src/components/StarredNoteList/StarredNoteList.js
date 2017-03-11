@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 
 export default class StarredNoteList extends React.Component {
   render() {
-    const list = this.props.notes.map(note => {
-      return <li key={note.id}>
+    const list = this.props.notes.map((note) => {
+      return (<li key={note.id}>
         <Link to={`/notes/${note.id}`}>
           <div className="page-Stars-title">{note.title}</div>
           <div className="page-Stars-meta">
@@ -12,11 +12,11 @@ export default class StarredNoteList extends React.Component {
             <span className="page-Stars-updated">{note.updated}</span>
           </div>
         </Link>
-      </li>;
+      </li>);
     });
 
-    return <div className="StarredLinkList">
+    return (<div className="StarredLinkList">
       <ul>{list}</ul>
-    </div>;
+    </div>);
   }
 }

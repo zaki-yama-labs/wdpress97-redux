@@ -18,13 +18,13 @@ class DashboardStore extends ReduceStore {
         });
       case 'note/update':
         return Object.assign({}, state, {
-          notes: state.notes.map(note => {
+          notes: state.notes.map((note) => {
             return action.id === note.id ? Object.assign({}, note, action.note) : note;
           }),
         });
       case 'note/delete':
         return Object.assign({}, state, {
-          notes: state.notes.filter(note => note.id !== action.id),
+          notes: state.notes.filter((note) => note.id !== action.id),
         });
       default:
         return state;

@@ -25,20 +25,19 @@ class Note extends React.Component {
 
     if (starred) {
       StarAction.create(note.id);
-    }
-    else {
+    } else {
       StarAction.delete(note.id);
     }
   }
 
   render() {
     const note = this.state.note;
-    if (!note || !note.id) return null;
+    if (!note || !note.id) { return null; }
 
-    return <div className="page-Note">
+    return (<div className="page-Note">
       <NoteHeader note={note} onChangeStar={this.handleChangeStar.bind(this)} />
       <NoteBody body={note.body} />
-    </div>;
+    </div>);
   }
 }
 

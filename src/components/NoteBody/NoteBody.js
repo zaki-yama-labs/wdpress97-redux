@@ -3,9 +3,9 @@ import marked from 'marked';
 
 export default class NoteBody extends React.Component {
   render() {
-    return <div
+    return (<div
       className="NoteBody"
       dangerouslySetInnerHTML={{ __html: marked(this.props.body) }}
-      />;
+    />);
   }
 }

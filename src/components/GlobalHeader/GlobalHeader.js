@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 export default class GlobalHeader extends React.Component {
   render() {
-    return <div className="GlobalHeader">
+    return (<div className="GlobalHeader">
       <div className="GlobalHeader-inner">
         <h1 className="GlobalHeader-title"><Link to="/">SPA Note</Link></h1>
         <div className="GlobalHeader-menu">
@@ -14,6 +14,6 @@ export default class GlobalHeader extends React.Component {
           <Link to="/starred" className="GlobalHeader-menuItem">Starred</Link>
         </div>
       </div>
-    </div>;
+    </div>);
   }
 }

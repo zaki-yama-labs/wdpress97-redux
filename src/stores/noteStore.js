@@ -16,16 +16,16 @@ class NoteStore extends ReduceStore {
         if (state.id === action.noteId) {
           return { note: Object.assign({}, state.note, { starred: true }) };
         }
-        else {
-          return state;
-        }
+
+        return state;
+
       case 'star/delete':
         if (state.id === action.noteId) {
           return { note: Object.assign({}, state.note, { starred: false }) };
         }
-        else {
-          return state;
-        }
+
+        return state;
+
       default:
         return state;
     }

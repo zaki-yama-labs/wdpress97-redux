@@ -40,12 +40,12 @@ export default class NoteEdit extends React.Component {
 
   render() {
     const note = this.state.note;
-    if (!note.id) return null;
+    if (!note.id) { return null; }
 
     // 変更があったらSaveボタンのところに編集中マークを出す。
     const isChanged = this.props.note.title !== note.title || this.props.note.body !== note.body;
 
-    return <div className="page-NoteEdit">
+    return (<div className="page-NoteEdit">
       <div className="page-NoteEdit-header">
         <input aria-label="タイトル" ref="title" type="text" value={note.title} onChange={this.onChangeTitle.bind(this)} data-page-title />
         <div className="page-NoteEdit-buttons">
@@ -61,6 +61,6 @@ export default class NoteEdit extends React.Component {
       <div className="page-NoteEdit-preview">
         <NoteBody body={note.body} />
       </div>
-    </div>;
+    </div>);
   }
 }

@@ -11,22 +11,22 @@ export default class NoteList extends React.Component {
       classNames.push('is-selected');
     }
 
-    return <li className={classNames.join(' ')} key={note.id}>
+    return (<li className={classNames.join(' ')} key={note.id}>
       <Link to={`/notes/${note.id}/edit`}>
         <span className="NoteList-title">{note.title}</span>
         <span className="NoteList-updated">{note.updated}</span>
       </Link>
-    </li>;
+    </li>);
   }
 
   // notesを親から受け取ってリストを返す
   render() {
-    const items = this.props.notes.map(note => {
+    const items = this.props.notes.map((note) => {
       return this.renderItem(note);
     });
 
-    return <div className="NoteList">
+    return (<div className="NoteList">
       <ul>{items}</ul>
-    </div>;
+    </div>);
   }
 }
