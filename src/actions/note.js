@@ -3,6 +3,7 @@ import NoteApiClient from '../services/NoteApiClient';
 export const FETCH_MY_NOTES = 'FETCH_MY_NOTES';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
 
 function fetchMyNotesSuccess(notes) {
   return {
@@ -46,6 +47,21 @@ export function updateNote(id, { title, body }) {
   return (dispatch) => {
     NoteApiClient.updateNote(id, { title, body }).then(() => {
       dispatch(updateNoteSuccess({ id, title, body }));
+    });
+  };
+}
+
+function deleteNoteSuccess(id) {
+  return {
+    type: DELETE_NOTE,
+    payload: { id },
+  };
+}
+
+export function deleteNote(id) {
+  return (dispatch) => {
+    NoteApiClient.deleteNote(id).then(() => {
+      dispatch(deleteNoteSuccess(id));
     });
   };
 }

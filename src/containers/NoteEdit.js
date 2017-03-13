@@ -3,8 +3,8 @@ import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import {
   updateNote,
+  deleteNote,
 } from '../actions/note';
-import NoteAction from '../actions/NoteAction';
 import Button from '../components/Button/Button';
 import NoteBody from '../components/NoteBody/NoteBody';
 
@@ -40,7 +40,7 @@ class NoteEdit extends React.Component {
 
   handleDelete() {
     if (window.confirm('Are you sure?')) {
-      NoteAction.delete(this.state.note.id);
+      this.props.dispatch(deleteNote(this.state.note.id));
     }
   }
 
