@@ -1,4 +1,8 @@
-import { FETCH_MY_NOTES, CREATE_NOTE } from '../actions/note';
+import {
+  FETCH_MY_NOTES,
+  CREATE_NOTE,
+  UPDATE_NOTE,
+} from '../actions/note';
 
 export default function notesReducer(state = [], action) {
   switch (action.type) {
@@ -6,6 +10,10 @@ export default function notesReducer(state = [], action) {
       return action.payload;
     case CREATE_NOTE:
       return [action.payload, ...state];
+    case UPDATE_NOTE:
+      return state.map((note) => {
+        return note.id === action.payload.id ? Object.assign({}, note, action.payload) : note;
+      });
     default:
       return state;
   }
