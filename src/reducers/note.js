@@ -1,24 +1,14 @@
 import {
-  FETCH_MY_NOTES,
-  CREATE_NOTE,
-  UPDATE_NOTE,
-  DELETE_NOTE,
+  FETCH_NOTE_START,
+  FETCH_NOTE_SUCCESS,
 } from '../actions/note';
 
-export default function notesReducer(state = [], action) {
+export default function notesReducer(state = {}, action) {
   switch (action.type) {
-    case FETCH_MY_NOTES:
+    case FETCH_NOTE_START:
+      return null;
+    case FETCH_NOTE_SUCCESS:
       return action.payload;
-    case CREATE_NOTE:
-      return [action.payload, ...state];
-    case UPDATE_NOTE:
-      return state.map((note) => {
-        return note.id === action.payload.id ? Object.assign({}, note, action.payload) : note;
-      });
-    case DELETE_NOTE:
-      return state.filter((note) => {
-        return note.id !== action.payload.id;
-      });
     default:
       return state;
   }
