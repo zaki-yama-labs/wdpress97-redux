@@ -7,7 +7,7 @@ import App from './pages/App/App';
 import Dashboard from './containers/Dashboard';
 import NoteEdit from './containers/NoteEdit';
 import Note from './containers/Note';
-import Starred from './pages/Starred/Starred';
+import Starred from './containers/Starred';
 import configureStore from './store/configureStore';
 
 const store = configureStore();

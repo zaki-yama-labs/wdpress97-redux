@@ -3,6 +3,7 @@ import NoteApiClient from '../services/NoteApiClient';
 export const FETCH_MY_NOTES = 'FETCH_MY_NOTES';
 export const FETCH_NOTE_START = 'FETCH_NOTE_START';
 export const FETCH_NOTE_SUCCESS = 'FETCH_NOTE_SUCCESS';
+export const FETCH_STARRED = 'FETCH_STARRED';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
@@ -40,6 +41,21 @@ export function fetchNote(id) {
     dispatch(fetchNoteStart());
     NoteApiClient.fetchNote(id).then((note) => {
       dispatch(fetchNoteSuccess(note));
+    });
+  };
+}
+
+function fetchStarredSuccess(notes) {
+  return {
+    type: FETCH_STARRED,
+    payload: notes,
+  };
+}
+
+export function fetchStarred() {
+  return (dispatch) => {
+    NoteApiClient.fetchStarredNotes().then((notes) => {
+      dispatch(fetchStarredSuccess(notes));
     });
   };
 }

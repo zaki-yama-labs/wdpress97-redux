@@ -1,5 +1,6 @@
 import {
   FETCH_MY_NOTES,
+  FETCH_STARRED,
   CREATE_NOTE,
   UPDATE_NOTE,
   DELETE_NOTE,
@@ -8,6 +9,8 @@ import {
 export default function notesReducer(state = [], action) {
   switch (action.type) {
     case FETCH_MY_NOTES:
+      return action.payload;
+    case FETCH_STARRED:
       return action.payload;
     case CREATE_NOTE:
       return [action.payload, ...state];
