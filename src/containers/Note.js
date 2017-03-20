@@ -2,10 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NoteHeader from '../components/NoteHeader/NoteHeader';
 import NoteBody from '../components/NoteBody/NoteBody';
-import StarAction from '../actions/StarAction';
 import {
   fetchNote,
 } from '../actions/note';
+import {
+  createStar,
+  deleteStar,
+} from '../actions/star';
 
 class Note extends React.Component {
   constructor(props) {
@@ -19,13 +22,13 @@ class Note extends React.Component {
   }
 
   handleChangeStar(starred) {
-    const note = Object.assign({}, this.state.note, { starred });
+    const note = Object.assign({}, this.props.note, { starred });
     this.setState({ note });
 
     if (starred) {
-      StarAction.create(note.id);
+      this.props.dispatch(createStar(note.id));
     } else {
-      StarAction.delete(note.id);
+      this.props.dispatch(deleteStar(note.id));
     }
   }
 
