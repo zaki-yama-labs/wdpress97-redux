@@ -30,7 +30,6 @@ module.exports = {
     stats: {
       version: false,
       hash: false,
-      chunkModules: false,
     },
   },
   plugins: [
@@ -39,5 +38,5 @@ module.exports = {
   postcss: [
     require('postcss-easy-import')({ glob: true }),
   ],
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
 };

@@ -21,7 +21,7 @@ export default class NoteHeader extends React.Component {
   render() {
     const note = this.props.note;
 
-    return <div className="NoteHeader">
+    return (<div className="NoteHeader">
       <h1 className="NoteHeader-title">
         {note.title}
       </h1>
@@ -33,6 +33,6 @@ export default class NoteHeader extends React.Component {
         <Button hidden={!this.isOwn()} onClick={() => this.handleClickEdit()}>Edit</Button>
         <StarButton starred={note.starred} onChange={this.props.onChangeStar} />
       </div>
-    </div>;
+    </div>);
   }
 }
