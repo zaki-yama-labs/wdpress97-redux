@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 
-import App from './pages/App/App';
+import App from './components/App';
 import Dashboard from './containers/Dashboard';
 import NoteEdit from './containers/NoteEdit';
 import Note from './containers/Note';

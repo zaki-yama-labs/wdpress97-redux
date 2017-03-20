@@ -1,6 +1,6 @@
 import React from 'react';
-import GlobalHeader from '../../components/GlobalHeader/GlobalHeader';
-import { announcePageTitle } from '../../announcer';
+import GlobalHeader from './GlobalHeader/GlobalHeader';
+import { announcePageTitle } from '../announcer';
 
 export default class App extends React.Component {
   componentDidUpdate(prevProps) {
